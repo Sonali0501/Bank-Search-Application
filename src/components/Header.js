@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div id="header">
-            <Link to='/banks'><h2>Banks Search App</h2></Link>
+            <Link to='/'><h2>Banks Search App</h2></Link>
             <Link to='/banks/favourites'><button>My Favourites</button></Link>
         </div>
     );
