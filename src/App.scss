@@ -1,0 +1,130 @@
+html{
+  font-family: 'Roboto', sans-serif;
+}
+
+#header{
+  background: rgb(97, 152, 235);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding:20px 40px;
+
+  h2{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0px;
+    color: #fff;
+  }
+  button{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px;
+    border: none;
+    outline: none;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+  }
+}
+
+.bank-list{
+  .sub-header{
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    .dropdown{
+      label{
+        font-weight: 500;
+        font-size: 16px;
+        margin: 0px;
+      }
+    }
+
+    input{
+      max-width: 500px;
+    }
+  }
+
+  .loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+    color:rgb(97, 152, 235);
+    font-size: 36px;
+  }
+
+  .table{
+    width: 90%;
+    margin: 30px auto;
+  }
+}
+
+.bank-details{
+
+  h4{
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+  .item{
+    margin-left: 100px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    .label{
+      color: #000;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .data{
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+
+  button{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px;
+    border: none;
+    outline: none;
+    background: rgb(97, 152, 235);
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    float: right;
+    margin-right: 150px;
+  }
+}
+
+.favourites{
+  h4{
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+  .no{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+    color:rgb(97, 152, 235);
+    font-size: 36px;   
+  }
+
+  .table{
+    width: 90%;
+    margin: 30px auto;
+  }
+}

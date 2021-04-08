@@ -1,17 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from "redux-devtools-extension";
+
+function saveToLocalStorage(state) {
+  try {
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('state',serializedState)
+  } catch(e) {
+    console.log(e)
+  }
+}
+
+function loadFromLocalStorage() {
+  try {
+    const serializedState = localStorage.getItem('state')
+    if (serializedState === null) return undefined
+    return JSON.parse(serializedState)
+  } catch(e) {
+    console.log(e)
+    return undefined
+  }
+}
+
+const persistedState = loadFromLocalStorage()
+
+const store=createStore(reducers,persistedState,composeWithDevTools(applyMiddleware(thunk)));
+
+store.subscribe(() => saveToLocalStorage(store.getState()))
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
