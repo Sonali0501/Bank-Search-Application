@@ -12,10 +12,10 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/" render={() => (
+        {/* <Route exact path="/" render={() => (
             <Redirect to="/banks"/>
-        )}/>
-        <Route path="/banks" component={BankList} exact />
+        )}/> */}
+        <Route path="/" component={BankList} exact />
         <Route path="/banks/favourites" component={Favourites} exact />
         <Route path="/banks/:id" component={BankDetails} exact />
       </Switch>
