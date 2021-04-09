@@ -60,8 +60,20 @@ html{
   }
 
   .table{
-    width: 90%;
+    width: 95%;
     margin: 30px auto;
+
+    .row{
+      all: none;
+      &.react-bootstrap-table-pagination{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding-left: 50px;
+        margin-top: -20px;
+      }
+    }
   }
 }
 

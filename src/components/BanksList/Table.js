@@ -3,7 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Link } from 'react-router-dom';
 
-const Table = ({pagination,itemsPerPage,search,data}) => {
+const Table = ({pagination,search,data}) => {
 
     const BankListData = useMemo(() => {
       let computedData = data;
@@ -19,25 +19,20 @@ const Table = ({pagination,itemsPerPage,search,data}) => {
 
       return computedData
 
-    }, [search, itemsPerPage]);
+    }, [search]);
 
 
     const options = {
-      // pageStartIndex: 0,
-      sizePerPage: itemsPerPage,
-      hideSizePerPage: true,
-      hidePageListOnlyOnePage: true
+      sizePerPage: 10,
+      hideSizePerPage: pagination ? false : true,
+      showTotal: pagination ? true : false,
+      hidePageListOnlyOnePage: true,
+      onSizePerPageChange: function (page, sizePerPage) {
+        console.log('page', page);
+        console.log('sizePerPage', sizePerPage);
+      }
     };
     const columns = [
-      // {
-      //   dataField: 'No#',
-      //   text: 'No.',
-      //   Cell: row => (
-      //     <div>
-      //       <span title={ row.value }>{ row.value }</span>
-      //     </div>
-      //   )
-      // },
       {
         dataField: 'bank_id',
         text: 'Bank ID'
@@ -63,7 +58,6 @@ const Table = ({pagination,itemsPerPage,search,data}) => {
 
     return (
         <BootstrapTable
-          className='table'
           keyField="ifsc"
           data={ BankListData }
           columns={ columns }
